@@ -1,0 +1,14 @@
+{
+    "appId": "io.digitcapture.app",
+    "appName": "DigitCapture",
+    "webDir": "dist",
+    "backgroundColor": "#0f172a",
+    "server": {
+        "androidScheme": "https"
+    },
+    "plugins": {
+        "SplashScreen": {
+            "launchShowDuration": 500
+        }
+    }
+}

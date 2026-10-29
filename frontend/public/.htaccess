@@ -1,0 +1,13 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /
+
+    # Real files (JS, CSS, images, the service worker) are served as-is.
+    RewriteCond %{REQUEST_FILENAME} -f [OR]
+    RewriteCond %{REQUEST_FILENAME} -d
+    RewriteRule ^ - [L]
+
+    # Client-side routes such as /dashboard and /login have no file on disk.
+    # Send them to the SPA shell so a refresh stays in the app.
+    RewriteRule ^ index.html [L]
+</IfModule>

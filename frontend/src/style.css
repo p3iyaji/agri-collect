@@ -1,0 +1,74 @@
+@import 'tailwindcss';
+
+/*
+ * Screens are written with the dark slate palette. Light mode remaps those
+ * CSS variables so the same utilities flip together: surfaces become white
+ * and slate-100, text steps darker, and accent shades that were tuned for
+ * dark backgrounds move to a partner with enough contrast on white.
+ */
+html.dark {
+    color-scheme: dark;
+}
+
+html.light {
+    color-scheme: light;
+    --color-slate-950: oklch(96.8% 0.007 247.896);
+    --color-slate-900: #fff;
+    --color-slate-800: oklch(92.9% 0.013 255.508);
+    --color-slate-700: oklch(86.9% 0.022 252.894);
+    --color-slate-400: oklch(44.6% 0.043 257.281);
+    --color-slate-300: oklch(37.2% 0.044 257.287);
+    --color-slate-200: oklch(27.9% 0.041 260.031);
+    --color-slate-100: oklch(20.8% 0.042 265.755);
+    --color-emerald-200: oklch(43.2% 0.095 166.913);
+    --color-emerald-300: oklch(50.8% 0.118 165.612);
+    --color-emerald-400: oklch(59.6% 0.145 163.225);
+    --color-emerald-800: oklch(90.5% 0.093 164.15);
+    --color-emerald-900: oklch(90.5% 0.093 164.15);
+    --color-red-300: oklch(50.5% 0.213 27.518);
+    --color-red-400: oklch(57.7% 0.245 27.325);
+    --color-red-700: oklch(80.8% 0.114 19.571);
+    --color-red-800: oklch(88.5% 0.062 18.334);
+    --color-red-900: oklch(88.5% 0.062 18.334);
+    --color-red-950: oklch(93.6% 0.032 17.717);
+    --color-amber-300: oklch(47.3% 0.137 46.201);
+    --color-amber-600: oklch(82.8% 0.189 84.429);
+    --color-amber-700: oklch(87.9% 0.169 91.605);
+    --color-amber-800: oklch(92.4% 0.12 95.746);
+    --color-amber-900: oklch(92.4% 0.12 95.746);
+    --color-amber-950: oklch(96.2% 0.059 95.617);
+}
+
+html.light input:-webkit-autofill,
+html.light input:-webkit-autofill:hover,
+html.light input:-webkit-autofill:focus {
+    -webkit-text-fill-color: oklch(20.8% 0.042 265.755);
+    caret-color: oklch(20.8% 0.042 265.755);
+    box-shadow: 0 0 0 1000px #fff inset;
+}
+
+@layer components {
+    .input {
+        @apply w-full rounded-md border border-slate-700 bg-slate-900 px-3 py-2 text-sm text-slate-100 placeholder-slate-500 outline-none focus:border-emerald-500;
+    }
+
+    .btn {
+        @apply rounded-md bg-emerald-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-emerald-500 disabled:cursor-not-allowed disabled:opacity-50;
+    }
+
+    .btn-ghost {
+        @apply rounded-md border border-slate-700 px-3 py-1.5 text-sm text-slate-200 transition hover:bg-slate-800 disabled:cursor-not-allowed disabled:opacity-50;
+    }
+
+    .card {
+        @apply rounded-lg border border-slate-800 bg-slate-900 p-4;
+    }
+
+    .th {
+        @apply px-3 py-2 text-left text-xs font-semibold uppercase tracking-wide text-slate-400;
+    }
+
+    .td {
+        @apply px-3 py-2 text-sm text-slate-200;
+    }
+}
